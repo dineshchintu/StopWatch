@@ -22,13 +22,11 @@ const format=(time)=>{
     let minutes = Math.floor(time / 60 %60);
     let seconds = Math.floor(time  %60);
     seconds = seconds < 10 ? '0' + seconds : seconds
-     return minutes+":"+seconds;
-
+     return minutes+":"+seconds
 }
 return(
     <div>
-        <h1>Stopw
-            atch</h1>
+        <h1>Stopwatch</h1>
      <p>Timer:{format(time)}</p>
      <div>
         <button onClick={()=>{

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Stopwatch = () => {
   
 
-    
+
   const [time, setTime] = useState(0);
 
   const [isRunning, setIsRunning] = useState(false);
@@ -35,8 +35,7 @@ const Stopwatch = () => {
   return (
     <div>
         <h1> Stopwatch</h1>
-      <p>Time: 
-       {minutes.toString().padStart(1, "0")}: 
+      <p>Time: {minutes.toString().padStart(1, "0")}: 
         {seconds.toString().padStart(2, "0")}
       </p>
       <div>

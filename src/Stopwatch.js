@@ -27,7 +27,7 @@ const format=(time)=>{
 return(
     <div>
         <h1>Stopwatch</h1>
-     <p>Timer:{format(time)}</p>
+     <p>Time: {format(time)}</p>
      <div>
         <button onClick={()=>{
         setTime(0)

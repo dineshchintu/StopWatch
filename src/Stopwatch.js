@@ -22,7 +22,7 @@ const format=(time)=>{
     let minutes = Math.floor(time / 60 %60);
     let seconds = Math.floor(time  %60);
     seconds = seconds < 10 ? '0' + seconds : seconds
-     return minutes+":"+seconds
+     return minutes+" :"+seconds
 }
 return(
     <div>
@@ -30,7 +30,7 @@ return(
      <p>Time: {format(time)}</p>
      <div>
         <button onClick={()=>{
-        setTime(0)
+      
             if(running)
             clearInterval(timer.current)
         setRunning(!running)

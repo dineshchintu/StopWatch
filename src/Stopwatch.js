@@ -1,44 +1,54 @@
-import {useState,useRef,useEffect} from "react";
-function Stopwatch()
-  {
+import React, { useState, useEffect } from "react";
 
-const [time,setTime]= useState(0);
-const [running,setRunning]=useState(true);
-const timer =useRef;
-useEffect(()=>{
-    if(running)
-{
-    timer.current = setInterval(()=>{
-        setTime(pre=>pre+1)
-    },1000)
-}
+const Stopwatch = () => {
+  
+
+    
+  const [time, setTime] = useState(0);
+
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    let intervalId;
+    if (isRunning) {
+     
+      intervalId = setInterval(() => setTime(time + 1), 10);
+    }
+    return () => clearInterval(intervalId);
+  }, [isRunning, time]);
 
 
-return ()=> clearInterval(timer.current)
+  const minutes = Math.floor((time % 360000) / 6000);
 
-},[running])
+  
+  const seconds = Math.floor((time % 6000) / 100);
 
-const format=(time)=>{
-    let minutes = Math.floor(time / 60 %60);
-    let seconds = Math.floor(time  %60);
-    seconds = seconds < 10 ? '0' + seconds : seconds
-     return minutes+" :"+seconds
-}
-return(
+  
+  const startAndStop = () => {
+    setIsRunning(!isRunning);
+  };
+
+ 
+  const reset = () => {
+    setTime(0);
+  };
+  return (
     <div>
-        <h1>Stopwatch</h1>
-     <p>Time: {format(time)}</p>
-     <div>
-        <button onClick={()=>{
-      
-            if(running)
-            clearInterval(timer.current)
-        setRunning(!running)
-
-        }}>{running?'Start':'Stop'}</button>
-        <button onClick={()=>setTime(0)}>Reset</button>
-     </div>
+        <h1> Stopwatch</h1>
+      <p>Time: 
+       {minutes.toString().padStart(1, "0")}: 
+        {seconds.toString().padStart(2, "0")}
+      </p>
+      <div>
+        <button  onClick={startAndStop}>
+          {isRunning ? "Stop" : "Start"}
+        </button>
+        <button  onClick={reset}>
+          Reset
+        </button>
+      </div>
     </div>
-)
-  }
- export default Stopwatch;
+  );
+};
+
+export default Stopwatch;

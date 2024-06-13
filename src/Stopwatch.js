@@ -12,16 +12,16 @@ const Stopwatch = () => {
     let intervalId;
     if (isRunning) {
      
-      intervalId = setInterval(() => setTime(time + 1), 10);
+      intervalId = setInterval(() => setTime(time + 1), 1000);
     }
     return () => clearInterval(intervalId);
   }, [isRunning, time]);
 
 
-  const minutes = Math.floor((time % 360000) / 6000);
+  const minutes = Math.floor((time ) / 60);
 console.log(minutes)
   
-  const seconds = Math.floor((time % 6000) / 100);
+  const seconds = Math.floor((time));
 console.log(seconds);
   
   const startAndStop = () => {

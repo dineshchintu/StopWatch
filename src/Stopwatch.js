@@ -12,17 +12,17 @@ const Stopwatch = () => {
     let intervalId;
     if (isRunning) {
      
-      intervalId = setInterval(() => setTime(time + 1), 1000);
+      intervalId = setInterval(() => setTime(time + 1), 10);
     }
     return () => clearInterval(intervalId);
   }, [isRunning, time]);
 
 
-  const minutes = Math.floor((time % 360000) / 60);
+  const minutes = Math.floor((time % 360000) / 6000);
 console.log(minutes)
   
   const seconds = Math.floor((time % 6000) / 100);
-console.log(seconds);
+console.log(seconds)
   
   const startAndStop = () => {
     setIsRunning(!isRunning);

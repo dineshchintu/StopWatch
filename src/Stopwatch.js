@@ -18,10 +18,10 @@ const Stopwatch = () => {
   }, [isRunning, time]);
 
 
-  const minutes = Math.floor((time ) / 60);
+  const minutes = Math.floor((time % 360000) / 60);
 console.log(minutes)
   
-  const seconds = Math.floor((time));
+  const seconds = Math.floor((time % 6000) / 100);
 console.log(seconds);
   
   const startAndStop = () => {
@@ -37,7 +37,7 @@ console.log(seconds);
     <div>
         <h1>Stopwatch</h1>
       <p>{"Time: "+minutes.toString().padStart(1, "0")+":"+seconds.toString().padStart(2, "0")}</p>
-      {/* <p>Time: 1:05</p> */}
+      <p>Time: 1:05</p>
       <div>
         <button  onClick={startAndStop}>
           {isRunning ? "Stop" : "Start"}

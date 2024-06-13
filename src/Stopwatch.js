@@ -36,7 +36,7 @@ const Stopwatch = () => {
   return (
     <div>
         <h1>Stopwatch</h1>
-      <p>Time: {minutes.toString().padStart(1, "0")}: {seconds.toString().padStart(2, "0")}</p>
+      <p>Time: {minutes.toString().padStart(1, "0")}:{seconds.toString().padStart(2, "0")}</p>
       <div>
         <button  onClick={startAndStop}>
           {isRunning ? "Stop" : "Start"}

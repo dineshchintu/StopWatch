@@ -37,7 +37,7 @@ console.log(seconds);
     <div>
         <h1>Stopwatch</h1>
       <p>{"Time: "+minutes.toString().padStart(1, "0")+":"+seconds.toString().padStart(2, "0")}</p>
-      <p>Time: 1:05</p>
+      {/* <p>Time: 1:05</p> */}
       <div>
         <button  onClick={startAndStop}>
           {isRunning ? "Stop" : "Start"}

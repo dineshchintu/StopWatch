@@ -31,6 +31,7 @@ const Stopwatch = () => {
  
   const reset = () => {
     setTime(0);
+    startAndStop();
   };
   return (
     <div>
